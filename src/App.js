@@ -24,7 +24,7 @@ function App() {
     <button type='submit'>Submit</button>
    </form>
     {data && <>
-    <p>Full Name :{data.fname} {data.lname}</p>
+    <p>Full Name: {data.fname} {data.lname}</p>
     </>}
    </>
   );
