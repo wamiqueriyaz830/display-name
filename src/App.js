@@ -10,7 +10,8 @@ function App() {
   const handleSubmit=(e)=>{
    e.preventDefault()
    setData({fname,lname})
-
+   setFname("")
+   setLname("")
   }
   return (
    <>
