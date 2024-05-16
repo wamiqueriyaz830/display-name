@@ -1,24 +1,31 @@
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
-
+import { useState } from 'react';
 function App() {
+  const [fname,setFname]=useState("")
+  const [lname,setLname]=useState("")
+  const [data,setData]=useState(null)
+
+  console.log(fname,lname);
+  const handleSubmit=(e)=>{
+   e.preventDefault()
+   setData({fname,lname})
+
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+   <>
+   <h1>Full Name Display</h1>
+   <form onSubmit={handleSubmit}>
+    <label>First Name:</label>
+    <input required={true} type='text' value={fname} onChange={(e)=>{setFname(e.target.value)}}></input>
+    <label>Last Name:</label>
+    <input required={true} type='text' value={lname} onChange={(e)=>{setLname(e.target.value)}}></input>
+    <button type='submit'>Submit</button>
+   </form>
+    {data && <>
+    <p>Full Name :{data.fname}{data.lname}</p>
+    </>}
+   </>
   );
 }
 
